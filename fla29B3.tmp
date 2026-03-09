@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6cj7amx060iw"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_bkr0f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l6kfg"]
+sky_top_color = Color(0.631373, 0.380392, 1, 1)
+sky_horizon_color = Color(0.707843, 0.637348, 0.78325, 1)
+ground_horizon_color = Color(0.707843, 0.637348, 0.78325, 1)
+
+[sub_resource type="Sky" id="Sky_skmib"]
+sky_material = SubResource("ProceduralSkyMaterial_l6kfg")
+
+[sub_resource type="Environment" id="Environment_mcy06"]
+background_mode = 2
+sky = SubResource("Sky_skmib")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_awwgj"]
+height = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_n5tlx"]
+radius = 24.0
+height = 34.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55y24"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mehvl"]
+size = Vector2(200, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dppk8"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6sduq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_irvuk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3x4n6"]
+top_radius = 0.21
+bottom_radius = 0.18
+height = 0.55
+
+[node name="MainScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mcy06")
+
+[node name="pilar" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2259, 0.0516207, -0.0607979)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar2" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8147, 0.0516207, -0.0607979)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar3" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.8147, 0.0516207, 25.0001)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar4" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24512, 0.0516207, 25.0001)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar5" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.286, 0.0516207, 25.0001)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar6" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.286, 0.0516207, -22.4248)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar7" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54287, 0.0516207, -22.4248)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="pilar8" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1762, 0.0516207, -22.4248)
+mesh = SubResource("CylinderMesh_awwgj")
+skeleton = NodePath("../..")
+
+[node name="hill" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67855, 3.26316, -87.2125)
+mesh = SubResource("SphereMesh_n5tlx")
+
+[node name="hill2" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(0.950125, 0.311871, 0, -0.311871, 0.950125, 0, 0, 0, 1, -97.4228, 3.26316, -87.2125)
+mesh = SubResource("SphereMesh_n5tlx")
+
+[node name="hill3" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(0.999758, -0.0220067, 0, 0.0220067, 0.999758, 0, 0, 0, 1, -97.4228, -1.0285, 86.6166)
+mesh = SubResource("SphereMesh_n5tlx")
+
+[node name="hill4" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(0.999758, -0.0220067, 0, 0.0220067, 0.999758, 0, 0, 0, 1, 90.412, -1.0285, 86.6166)
+mesh = SubResource("SphereMesh_n5tlx")
+
+[node name="hill5" type="MeshInstance3D" parent="WorldEnvironment"]
+transform = Transform3D(0.999758, -0.0220067, 0, 0.0220067, 0.999758, 0, 0, 0, 1, 90.412, -1.0285, -90.747)
+mesh = SubResource("SphereMesh_n5tlx")
+
+[node name="ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.675, -1, -0.939)
+material_override = SubResource("StandardMaterial3D_55y24")
+mesh = SubResource("PlaneMesh_mehvl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dppk8")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_bkr0f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_6sduq")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_irvuk")
+
+[node name="Marker3D" type="Marker3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126215, 0.651887, -0.298597)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Marker3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.2774, -3.64015)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(-5.17325e-08, -1, 0, -5.17325e-08, 1.91069e-15, -1, 1.1835, -4.37114e-08, -4.37114e-08, -0.00450367, 0.359114, 0.381321)
+mesh = SubResource("CylinderMesh_3x4n6")
